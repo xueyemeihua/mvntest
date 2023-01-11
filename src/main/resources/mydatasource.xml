@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<datasource>
+    <name>ly</name>
+    <pwd>ly</pwd>
+    <url>jdbc:mysql://localhost:3306/kg20?characterEncoding=utf8&amp;useUnicode=true</url>
+    <driver>com.mysql.jdbc.Driver</driver>
+</datasource>
