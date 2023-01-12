@@ -2,7 +2,7 @@
 <datasource>
     <name>ly</name>
     <pwd>ly</pwd>
-    <url>jdbc:mysql://localhost:3306/kg20?characterEncoding=utf8&amp;useUnicode=true</url>
+    <url>jdbc:mysql://localhost:3306/pro_test?characterEncoding=utf8&amp;useUnicode=true</url>
     <driver>com.mysql.jdbc.Driver</driver>
 
     <mapperlocations>
