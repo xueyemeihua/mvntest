@@ -21,8 +21,4 @@ public class DeptMapperImpl extends BaseDao<Dept> implements DeptMapper {
         return getAll(XmlUtil.mapperMap.get("deptMapper.getDepts").getSql());
     }
 
-    public static void main(String[] args) {
-        System.out.println(new DeptMapperImpl().getDeptByDeptno(10));
-    }
-
 }

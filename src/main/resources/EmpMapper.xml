@@ -3,5 +3,8 @@
     <mapper id="getEmpByEmpno" returnType="cn.ly.mvntest.pojo.Emp">
         select * from emp where empno = ?
     </mapper>
+    <mapper id="updateEmpByEmpno" returnType="cn.ly.mvntest.pojo.Emp">
+        update emp set salary = ? where empno = ?
+    </mapper>
 
 </mappers>

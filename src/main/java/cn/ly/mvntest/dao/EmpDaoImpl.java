@@ -13,4 +13,10 @@ public class EmpDaoImpl extends BaseDao<Emp> implements EmpMapper {
     public Emp getEmpByEmpno(int empno) {
         return super.getOne(XmlUtil.mapperMap.get("empmaper.getEmpByEmpno").getSql(), empno);
     }
+
+    @Override
+    public int updateEmpByEmpno(int salary,int empno) {
+        return super.executeUpdate(XmlUtil.mapperMap.get("empmaper.updateEmpByEmpno").getSql(),salary,empno);
+    }
+
 }

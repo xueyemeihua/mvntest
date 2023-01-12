@@ -8,6 +8,7 @@
     <mapperlocations>
         <location>EmpMapper.xml</location>
         <location>DeptMapper.xml</location>
+        <location>TuserMapper.xml</location>
     </mapperlocations>
 </datasource>
 

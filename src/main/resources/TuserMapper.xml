@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mappers namespace="tusermapper">
+    <mapper id="insertTuser" returnType="cn.ly.mvntest.pojo.Tuser">
+        insert into tuser values (null,?,?,?,?);
+    </mapper>
+    <mapper id="delTuserByTid" returnType="cn.ly.mvntest.pojo.Tuser">
+        delete from tuser where tid = ?
+    </mapper>
+    <mapper id="updateTuserByTid" returnType="cn.ly.mvntest.pojo.Tuser">
+        update tuser set tage = ? where tid = ?
+    </mapper>
+    <mapper id="getTuserByTid" returnType="cn.ly.mvntest.pojo.Tuser">
+        select * from tuser where tid = ?
+    </mapper>
+    <mapper id="getAllTuser" returnType="cn.ly.mvntest.pojo.Tuser">
+        select * from tuser
+    </mapper>
+</mappers>
