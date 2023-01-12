@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mappers namespace="empmaper">
+    <mapper id="getEmpByEmpno" returnType="cn.ly.mvntest.pojo.Emp">
+        select * from emp where empno = ?
+    </mapper>
+
+</mappers>
