@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<mappers namespace="deptMapper">
+    <mapper id="getDeptByDeptno" returnType="cn.ly.mvntest.pojo.Dept">
+        select * from dept where deptno = ?
+    </mapper>
+    <mapper id="getDepts" returnType="cn.ly.mvntest.pojo.Dept">
+        select * from dept
+    </mapper>
+
+</mappers>

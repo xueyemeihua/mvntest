@@ -4,4 +4,10 @@
     <pwd>ly</pwd>
     <url>jdbc:mysql://localhost:3306/kg20?characterEncoding=utf8&amp;useUnicode=true</url>
     <driver>com.mysql.jdbc.Driver</driver>
+
+    <mapperlocations>
+        <location>EmpMapper.xml</location>
+        <location>DeptMapper.xml</location>
+    </mapperlocations>
 </datasource>
+

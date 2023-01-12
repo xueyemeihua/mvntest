@@ -1,6 +1,5 @@
 package cn.ly.mvntest.util;
 
-import cn.ly.mvntest.dao.EmpDaoImpl;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
@@ -21,7 +20,6 @@ public class XmlUtil {
     static {
         try {
             parseDateSource();
-            parseMapper();
         } catch (DocumentException e) {
             e.printStackTrace();
         }
@@ -29,6 +27,10 @@ public class XmlUtil {
     //初始化块,创建对象才会执行,会随着对象的创建而执行
     {
 
+    }
+
+    public static void parseMapperExcute() throws DocumentException {
+        parseMapper("mydatasource.xml");
     }
 
     //解析mydatasource.xml
@@ -42,20 +44,29 @@ public class XmlUtil {
         String url = rootElement.elementTextTrim("url");
         String driver = rootElement.elementTextTrim("driver");
 
+        //获取mapperlocations标签的内容
+        Element mapperLocations = rootElement.element("mapperlocations");
+        List<Element> locations = mapperLocations.elements("location");
+        for (Element location : locations) {
+            //遍历所有location并取值
+            String loc = location.getText().trim();
+            //System.out.println(loc);
+            //解析location对应的xml
+            parseMapper(loc);
+        }
         dataSourceMap.put(Constants.NAME,name);
         dataSourceMap.put(Constants.PASSWORD,pwd);
         dataSourceMap.put(Constants.URL,url);
         dataSourceMap.put(Constants.DRIVER,driver);
     }
 
-    public static void parseMapper() throws DocumentException {
+    public static void parseMapper(String file) throws DocumentException {
         SAXReader saxReader = new SAXReader();
-        Document document = saxReader.read(XmlUtil.class.getClassLoader().getResourceAsStream("EmpMapper.xml"));
+        Document document = saxReader.read(XmlUtil.class.getClassLoader().getResourceAsStream(file));
         //获取根元素
         Element rootElement = document.getRootElement();
         String namespace = rootElement.attributeValue("namespace");
         List<Element> mappers = rootElement.elements("mapper");
-
 
         for (int i = 0; i < mappers.size(); i++) {
             Element mapper = mappers.get(i);
@@ -65,13 +76,5 @@ public class XmlUtil {
             MapperObject mapperObject = new MapperObject(id,returnType,sql);
             mapperMap.put(namespace+"."+id,mapperObject);
         }
-        //System.out.println(mapperMap);
     }
-
-    public static void main(String[] args) throws Exception {
-        EmpDaoImpl empDao = new EmpDaoImpl();
-        System.out.println(empDao.getEmpByEmpno(1));
-
-    }
-
 }
